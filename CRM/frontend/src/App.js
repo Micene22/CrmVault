@@ -15,14 +15,13 @@ function App() {
   const [resources, setResources] = useState([]);
   const vantaRef = useRef(null);
 
-  // useEffect per recuperare i dati dal backend
+ 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/resources/')
       .then(res => setResources(res.data))
       .catch(err => console.log("Errore API:", err));
   }, []);
 
-  // Vanta.js OTTIMIZZATO: Niente useState per evitare lag e surriscaldamento
   useEffect(() => {
     let vantaEffect;
 
@@ -38,7 +37,7 @@ function App() {
         scale: 1.00,
         scaleMobile: 1.00,
         color: 0xff3f81,        
-        backgroundColor: 0x1E1548, // <-- Corretto il formato del colore qui!
+        backgroundColor: 0x1E1548, 
         size: 1.50
       });
     }, 100);
@@ -48,14 +47,14 @@ function App() {
       clearTimeout(timeoutId);
       if (vantaEffect) vantaEffect.destroy();
     };
-  }, []); // <-- L'array vuoto garantisce che l'animazione parta 1 sola volta
+  }, []); 
 
   const categories = [...new Set(resources.map(item => item.category_name))];
 
   return (
     <div ref={vantaRef} style={{ padding: '40px', minHeight: '100vh', fontFamily: 'sans-serif' }}>
       
-      {/* Testo h1 messo bianco per spiccare sullo sfondo blu scuro */}
+      
       <h1 style={{ textAlign: 'center', marginBottom: '40px', color: '#FFF', position: 'relative', zIndex: 1 }}>
         🏛️ Le Stack Che Conosco
       </h1>
@@ -83,7 +82,7 @@ function App() {
               style={{ 
                 borderRadius: '20px', 
                 borderTop: `8px solid ${style.accent}`, 
-                boxShadow: '0 8px 32px rgba(0,0,0,0.4)', // Resa l'ombra leggermente più scura per staccare dal blu
+                boxShadow: '0 8px 32px rgba(0,0,0,0.4)', 
               }}
             >
               <div className="card-content" style={{ textAlign: 'left', width: '100%', position: 'relative', zIndex: 2 }}> 
