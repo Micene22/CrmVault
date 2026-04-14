@@ -55,9 +55,16 @@ function App() {
     <div ref={vantaRef} style={{ padding: '40px', minHeight: '100vh', fontFamily: 'sans-serif' }}>
       
       
-      <h1 style={{ textAlign: 'center', marginBottom: '40px', color: '#FFF', position: 'relative', zIndex: 1 }}>
+      <h1 
+        className="titolo-neon" 
+        style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}
+      >
         🏛️ Le Stack Che Conosco
       </h1>
+      <h2 style={{ textAlign:'center', padding: '40px', minHeight: '10vh', fontFamily: 'sans-serif' , color:'white'}}> 
+      Questo è un semplice raccoglitore delle stack che conosco e che sto studiando.
+      il funzionamento è molto semplice, aggiungo le stack,link etc tramite il DB strutturato in Django
+      e automaticamente si creano della card graficate contenenti le infomazioni</h2>
       
       <div style={{ 
           display: 'grid', 
@@ -120,6 +127,7 @@ function App() {
         })}
       </div>
     </div>
+    
   );
 }
 
